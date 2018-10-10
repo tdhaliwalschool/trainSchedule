@@ -1,14 +1,100 @@
 /* css train style */
 
+@import url('https://fonts.googleapis.com/css?family=Germania+One');
+
+body, h1, h2, h3, h4, h5,h6, .title, .label, .text-center{
+    font-family: 'Germania One', cursive;
+    font-style: italic;
+}
+
 
         #train-table th,
 
-    td {
+td {
+    font-family: 'Germania One', cursive;
+    font-style: italic;
+  display: inline-block;
+    width: 16.575%;
 
-      display: inline-block;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+    font-family: 'Germania One', cursive;
+    font-style: italic;
+}
 
-      width: 16.575%;
+#head, #head2{
+    background-image: url("parchment.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: saddlebrown;
+    border-bottom-color: saddlebrown;
+    border-style: solid;
+    box-shadow: 10px 10px 5px saddlebrown;
+}
 
-    }
+button{
+    text-align: center;
+}
 
- 
+
+ .card-body{
+    text-shadow:1px 1px 0 #444;
+    color:saddlebrown;
+
+}
+
+.title{
+    font-weight: bolder;
+}
+
+label{
+    font-weight: bold
+}
+
+
+
+.form-control{
+    font-weight: lighter;
+    color: gray;
+    font-style: italic;
+  font-weight: 100;
+
+}
+
+#top{
+    font-weight:bolder;
+    color:saddlebrown;
+    font-style: italic;
+    font-size:200%;
+padding-bottom: 5%;
+color: white;
+    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+/* background:linear-gradient() */
+
+}
+
+.bg-image {
+  background-image: url("map.jpg");
+  background-blend-mode: lighten;
+  height: 100%; 
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.text-center{
+    font-weight:bolder;
+    color:saddlebrown;
+    font-style: italic;
+    font-size:500%;
+padding-bottom: 5%;
+/* color: white; */
+    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+text-shadow:2px 1px 0 #444 saddlebrown;
+
+font: xx-large;
+}

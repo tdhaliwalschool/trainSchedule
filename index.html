@@ -24,117 +24,10 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
 
 
-
     <!-- Moment.js Reference -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
-
-
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Germania+One');
-
-body, h1, h2, h3, h4, h5,h6, .title, .label, .text-center{
-    font-family: 'Germania One', cursive;
-    font-style: italic;
-}
-
-
-        #train-table th,
-
-td {
-    font-family: 'Germania One', cursive;
-    font-style: italic;
-  display: inline-block;
-    width: 16.575%;
-
-}
-tr:nth-child(even) {
-    background-color: #f2f2f2
-    font-family: 'Germania One', cursive;
-    font-style: italic;
-}
-
-#head, #head2{
-    background-image: url("parchment.jpg");
-    background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: saddlebrown;
-    border-bottom-color: saddlebrown;
-    border-style: solid;
-    box-shadow: 10px 10px 5px saddlebrown;
-}
-
-button{
-    text-align: center;
-}
-
-
- .card-body{
-    text-shadow:1px 1px 0 #444;
-    color:saddlebrown;
-
-}
-
-.title{
-    font-weight: bolder;
-}
-
-label{
-    font-weight: bold
-}
-
-
-
-.form-control{
-    font-weight: lighter;
-    color: gray;
-    font-style: italic;
-  font-weight: 100;
-
-}
-
-#top{
-    font-weight:bolder;
-    color:saddlebrown;
-    font-style: italic;
-    font-size:200%;
-padding-bottom: 5%;
-color: white;
-    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-/* background:linear-gradient() */
-
-}
-
-.bg-image {
-  background-image: url("map.jpg");
-  background-blend-mode: lighten;
-  height: 100%; 
-   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
-
-.text-center{
-    font-weight:bolder;
-    color:saddlebrown;
-    font-style: italic;
-    font-size:500%;
-padding-bottom: 5%;
-/* color: white; */
-    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-
-text-shadow:2px 1px 0 #444 saddlebrown;
-
-font: xx-large;
-}
-
-</style>
-
-
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 
 </head>
@@ -143,18 +36,18 @@ font: xx-large;
 
 
     <div class="bg-image">
-       
+
         <!-- train Tracker -->
 
         <div class="container">
 
-            
+
             <br>
             <br>
 
             <div>
                 <h1 class="text-center">Express Train Scheduler</h1>
-               
+
 
             </div>
 
@@ -187,7 +80,7 @@ font: xx-large;
                                             <h5>Next Train</h5>
                                         </th>
                                     </tr>
-                               </thead>
+                                </thead>
                                 <tbody>
                                 </tbody>
                             </table>
@@ -201,7 +94,9 @@ font: xx-large;
                 <div class="col-md-12">
                     <!-- Add train  -->
                     <div class="card mb-4" id="head2">
-                        <div class="card-header"><h4 class="title">Add Train</h4></div>
+                        <div class="card-header">
+                            <h4 class="title">Add Train</h4>
+                        </div>
                         <div class="card-body">
 
                             <!-- Entry Form -->
@@ -214,19 +109,27 @@ font: xx-large;
                                         type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="destination-input"><h6>Destination</h6></label>
+                                    <label for="destination-input">
+                                        <h6>Destination</h6>
+                                    </label>
                                     <input class="form-control" id="destination-input" placeholder="New York" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="first_train-input"><h6>First Train Arrival</h6></label>
+                                    <label for="first_train-input">
+                                        <h6>First Train Arrival</h6>
+                                    </label>
                                     <input class="form-control" id="first_train-input" placeholder="0000" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label for="minutes-input"><h6>Minutes</h6></label>
+                                    <label for="minutes-input">
+                                        <h6>Minutes</h6>
+                                    </label>
                                     <input class="form-control" id="minutes-input" placeholder="0000" type="text">
                                 </div>
                                 <!-- <div class="text-center"> -->
-                                <button class="btn btn-warning float-right" id="add-train-btn"><h6>Submit</h6></button>
+                                <button class="btn btn-warning float-right" id="add-train-btn">
+                                    <h6>Submit</h6>
+                                </button>
                                 <!-- </div> -->
                             </form>
                         </div>
@@ -239,7 +142,7 @@ font: xx-large;
 
 
     <!-- JavaScript -->
- 
+
     <script src="script.js"></script>
 
     <!-- // Example Time Math

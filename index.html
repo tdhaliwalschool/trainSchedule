@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 
-
-
 <html lang="en-us">
 
-
-
 <head>
-
-
 
     <meta charset="UTF-8">
 
     <title>Train Scheduler</title>
-
-
 
     <!-- Bootstrap -->
 
@@ -23,8 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-
+    <link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
 
     <!-- Firebase Reference -->
 
@@ -36,172 +29,220 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
-<style>
-    #train-table th,
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Germania+One');
+
+body, h1, h2, h3, h4, h5,h6, .title, .label, .text-center{
+    font-family: 'Germania One', cursive;
+    font-style: italic;
+}
+
+
+        #train-table th,
 
 td {
-
+    font-family: 'Germania One', cursive;
+    font-style: italic;
   display: inline-block;
-
-  width: 16.575%;
+    width: 16.575%;
 
 }
+tr:nth-child(even) {
+    background-color: #f2f2f2
+    font-family: 'Germania One', cursive;
+    font-style: italic;
+}
+
+#head, #head2{
+    background-image: url("parchment.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: saddlebrown;
+    border-bottom-color: saddlebrown;
+    border-style: solid;
+    box-shadow: 10px 10px 5px saddlebrown;
+}
+
+button{
+    text-align: center;
+}
+
+
+ .card-body{
+    text-shadow:1px 1px 0 #444;
+    color:saddlebrown;
+
+}
+
+.title{
+    font-weight: bolder;
+}
+
+label{
+    font-weight: bold
+}
+
+
+
+.form-control{
+    font-weight: lighter;
+    color: gray;
+    font-style: italic;
+  font-weight: 100;
+
+}
+
+#top{
+    font-weight:bolder;
+    color:saddlebrown;
+    font-style: italic;
+    font-size:200%;
+padding-bottom: 5%;
+color: white;
+    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+/* background:linear-gradient() */
+
+}
+
+.bg-image {
+  background-image: url("map.jpg");
+  background-blend-mode: lighten;
+  height: 100%; 
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.text-center{
+    font-weight:bolder;
+    color:saddlebrown;
+    font-style: italic;
+    font-size:500%;
+padding-bottom: 5%;
+/* color: white; */
+    text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+text-shadow:2px 1px 0 #444 saddlebrown;
+
+font: xx-large;
+}
+
 </style>
-    
+
+
+
+
+
 </head>
-
-
 
 <body>
 
 
+    <div class="bg-image">
+       
+        <!-- train Tracker -->
 
-    <!-- train Tracker -->
+        <div class="container">
 
-    <div class="container">
+            
+            <br>
+            <br>
 
-
-
-        <!-- Jumbotron -->
-
-        <div class="jumbotron" style="background-color: black; color: white">
-
-            <h1 class="text-center">Express Train Scheduler</h1>
-
-            <h3 class="text-center">Up to the minute info at your fingertips</h3>
-
-        </div>
-
-
-
-        <div class="row">
-
-
-
-            <div class="col-md-12">
-
-
-
-                <!-- Current trains-->
-
-                <div class="card mb-4">
-
-                    <div class="card-header">Current Train Schedule</div>
-
-                    <div class="card-body">
-
-                        <table class="table table-sm table-hover" id='train-table'>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Train Name</th>
-
-                                    <th scope="col">Destination</th>
-
-                                    <th scope="col">First Train Arrival (Military)</th>
-
-                                    <th scope="col">Frequency</th>
-
-                                    <th scope="col">Minutes To Next Train (Military)</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
+            <div>
+                <h1 class="text-center">Express Train Scheduler</h1>
+               
 
             </div>
 
-        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Current trains-->
 
+                    <div class="card mb-4" id="head">
 
-
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <!-- Add train  -->
-
-                <div class="card mb-4">
-
-                    <div class="card-header">Add train</div>
-
-                    <div class="card-body">
-
-
-
-                        <!-- Entry Form -->
-
-                        <form>
-
-                            <div class="form-group">
-
-                                <label for="train-name-input">Train Name</label>
-
-                                <input class="form-control" id="train-name-input" placeholder="Chicago Express" type="text">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="destination-input">Destination</label>
-
-                                <input class="form-control" id="destination-input" placeholder="New York" type="text">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="first_train-input">First_train Arrival (Military)</label>
-
-                                <input class="form-control" id="first_train-input" placeholder="0000" type="text">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="minutes-input">Minutes</label>
-
-                                <input class="form-control" id="minutes-input" placeholder="0000" type="text">
-
-                            </div>
-
-                            <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
-
-                        </form>
-
-
-
+                        <div class="card-header">
+                            <h3 class="title">Current Train Schedule</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm table-hover" id="train-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h5>Train Name</h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5>Destination</h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5>First Train</h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5>Frequency</h5>
+                                        </th>
+                                        <th scope="col">
+                                            <h5>Next Train</h5>
+                                        </th>
+                                    </tr>
+                               </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Add train  -->
+                    <div class="card mb-4" id="head2">
+                        <div class="card-header"><h4 class="title">Add Train</h4></div>
+                        <div class="card-body">
+
+                            <!-- Entry Form -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="train-name-input">
+                                        <h6>Train Name</h6>
+                                    </label>
+                                    <input class="form-control" id="train-name-input" placeholder="Chicago Express"
+                                        type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination-input"><h6>Destination</h6></label>
+                                    <input class="form-control" id="destination-input" placeholder="New York" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="first_train-input"><h6>First Train Arrival</h6></label>
+                                    <input class="form-control" id="first_train-input" placeholder="0000" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="minutes-input"><h6>Minutes</h6></label>
+                                    <input class="form-control" id="minutes-input" placeholder="0000" type="text">
+                                </div>
+                                <!-- <div class="text-center"> -->
+                                <button class="btn btn-warning float-right" id="add-train-btn"><h6>Submit</h6></button>
+                                <!-- </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
     </div>
 
 
 
     <!-- JavaScript -->
-
+ 
     <script src="script.js"></script>
 
-
-<!-- // Example Time Math
+    <!-- // Example Time Math
 
 // -----------------------------------------------------------------------------
 
@@ -215,190 +256,233 @@ td {
 
 // Now we will create code in moment.js to confirm that any attempt we use meets this test case -->
 
-<script>
-var config = {
+    <script>
 
-apiKey: "AIzaSyBtWngpI_f8y3o8aHp03NKH6U8b79fV5Tw",
+        // Assume the following situations.
+        // (TEST 1)
+        // First Train of the Day is 3:00 AM
+        // Assume Train comes every 3 minutes.
+        // Assume the current time is 3:16 AM....
+        // What time would the next train be...? (Use your brain first)
+        // It would be 3:18 -- 2 minutes away
+        // (TEST 2)
+        // First Train of the Day is 3:00 AM
+        // Assume Train comes every 7 minutes.
+        // Assume the current time is 3:16 AM....
+        // What time would the next train be...? (Use your brain first)
+        // It would be 3:21 -- 5 minutes away
+        // ==========================================================
+        // Solved Mathematically
+        // Test case 1:
+        // 16 - 00 = 16
+        // 16 % 3 = 1 (Modulus is the remainder)
+        // 3 - 1 = 2 minutes away
+        // 2 + 3:16 = 3:18
+        // Solved Mathematically
+        // Test case 2:
+        // 16 - 00 = 16
+        // 16 % 7 = 2 (Modulus is the remainder)
+        // 7 - 2 = 5 minutes away
+        // 5 + 3:16 = 3:21
+        // Assumptions
+        var tFrequency = 3;
+        // Time is 3:30 AM
+        var firstTime = "03:30";
+        // First Time (pushed back 1 year to make sure it comes before current time)
+        var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+        console.log(firstTimeConverted);
+        // Current Time
+        var currentTime = moment();
+        console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+        // Difference between the times
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        console.log("DIFFERENCE IN TIME: " + diffTime);
+        // Time apart (remainder)
+        var tRemainder = diffTime % tFrequency;
+        console.log(tRemainder);
+        // Minute Until Train
+        var tMinutesTillTrain = tFrequency - tRemainder;
+        console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+        // Next Train
+        var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+        console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
-authDomain: "train-time-d915a.firebaseapp.com",
 
-databaseURL: "https://train-time-d915a.firebaseio.com",
 
-projectId: "train-time-d915a",
 
-storageBucket: "train-time-d915a.appspot.com",
 
-messagingSenderId: "137311122151"
 
-};
 
-firebase.initializeApp(config);
 
+        //////////////////////////////////////////////
+        var config = {
 
+            apiKey: "AIzaSyBtWngpI_f8y3o8aHp03NKH6U8b79fV5Tw",
 
+            authDomain: "train-time-d915a.firebaseapp.com",
 
+            databaseURL: "https://train-time-d915a.firebaseio.com",
 
+            projectId: "train-time-d915a",
 
+            storageBucket: "train-time-d915a.appspot.com",
 
+            messagingSenderId: "137311122151"
 
+        };
 
-var database = firebase.database();
+        firebase.initializeApp(config);
 
+        var database = firebase.database();
 
+        // 2. Button for adding trains
 
-// 2. Button for adding trains
+        $("#add-train-btn").on("click", function (event) {
 
-$("#add-train-btn").on("click", function (event) {
+            event.preventDefault();
 
-event.preventDefault();
+            // Grabs user input
 
+            var trnName = $("#train-name-input").val().trim();
 
+            var trndestination = $("#destination-input").val().trim();
 
-// Grabs user input
+            var trnfirst_train = moment($("#first_train-input").val().trim(), "0000").format("X");
 
-var trnName = $("#train-name-input").val().trim();
+            var trnminutes = $("#minutes-input").val().trim();
 
-var trndestination = $("#destination-input").val().trim();
 
-var trnfirst_train = moment($("#first_train-input").val().trim(), "0000").format("X");
 
-var trnminutes = $("#minutes-input").val().trim();
+            // Creates local "temporary" object for holding train data
 
+            var newtrn = {
 
+                name: trnName,
 
-// Creates local "temporary" object for holding train data
+                destination: trndestination,
 
-var newtrn = {
+                first_train: trnfirst_train,
 
-    name: trnName,
+                minutes: trnminutes
 
-    destination: trndestination,
+            };
 
-    first_train: trnfirst_train,
 
-    minutes: trnminutes
 
-};
+            // Uploads train data to the database
 
+            database.ref().push(newtrn);
 
 
-// Uploads train data to the database
 
-database.ref().push(newtrn);
+            // Logs everything to console
 
+            console.log(newtrn.name);
 
+            console.log(newtrn.destination);
 
-// Logs everything to console
+            console.log(newtrn.first_train);
 
-console.log(newtrn.name);
+            console.log(newtrn.minutes);
 
-console.log(newtrn.destination);
 
-console.log(newtrn.first_train);
 
-console.log(newtrn.minutes);
+            alert("train successfully added");
 
 
 
-alert("train successfully added");
+            // Clears all of the text-boxes
 
+            $("#train-name-input").val("");
 
+            $("#destination-input").val("");
 
-// Clears all of the text-boxes
+            $("#first_train-input").val("");
 
-$("#train-name-input").val("");
+            $("#minutes-input").val("");
 
-$("#destination-input").val("");
+        });
 
-$("#first_train-input").val("");
 
-$("#minutes-input").val("");
 
-});
+        // 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
 
+        database.ref().on("child_added", function (childSnapshot) {
 
+            console.log(childSnapshot.val());
 
-// 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
 
-database.ref().on("child_added", function (childSnapshot) {
 
-console.log(childSnapshot.val());
+            // Store everything into a variable.
 
+            var trnName = childSnapshot.val().name;
 
+            var trndestination = childSnapshot.val().destination;
 
-// Store everything into a variable.
+            var trnfirst_train = childSnapshot.val().first_train;
 
-var trnName = childSnapshot.val().name;
+            var trnminutes = childSnapshot.val().minutes;
 
-var trndestination = childSnapshot.val().destination;
 
-var trnfirst_train = childSnapshot.val().first_train;
 
-var trnminutes = childSnapshot.val().minutes;
+            // train Info
 
+            console.log(trnName);
 
+            console.log(trndestination);
 
-// train Info
+            console.log(trnfirst_train);
 
-console.log(trnName);
+            console.log(trnminutes);
 
-console.log(trndestination);
 
-console.log(trnfirst_train);
 
-console.log(trnminutes);
+            // Prettify the train first_train
 
+            var trnfirst_trainPretty = moment.unix(trnfirst_train).format("hh:mm");
 
 
-// Prettify the train first_train
 
-var trnfirst_trainPretty = moment.unix(trnfirst_train).format("0000");
+            // Calculate the frequency worked using hardcore math
 
+            // To calculate the frequency worked
 
+            var trnfrequency = moment().diff(moment(trnfirst_train, "X"), "frequency");
 
-// Calculate the frequency worked using hardcore math
+            console.log(trnfrequency);
 
-// To calculate the frequency worked
 
-var trnfrequency = moment().diff(moment(trnfirst_train, "X"), "frequency");
 
-console.log(trnfrequency);
+            // Calculate the total minutes
 
+            // var trn = trnfrequency * trnminutes;
 
+            // Create the new row
 
-// Calculate the total minutes
+            var newRow = $("<tr>").append(
 
-// var trn = trnfrequency * trnminutes;
+                $("<td>").text(trnName),
 
+                $("<td>").text(trndestination),
 
+                $("<td>").text(trnfirst_trainPretty),
 
+                $("<td>").text(trnfrequency),
 
+                $("<td>").text(trnminutes),
 
-// Create the new row
+                $("<td>").text(trnBilled)
 
-var newRow = $("<tr>").append(
+            );
 
-    $("<td>").text(trnName),
+            // Append the new row to the table
 
-    $("<td>").text(trndestination),
+            $("#train-table > tbody").append(newRow);
 
-    $("<td>").text(trnfirst_trainPretty),
+        });
 
-    $("<td>").text(trnfrequency),
+    </script>
 
-    $("<td>").text(trnminutes),
-
-    $("<td>").text(trnBilled)
-
-);
-
-
-
-// Append the new row to the table
-
-$("#train-table > tbody").append(newRow);
-
-});</script>
 
 
 </body>

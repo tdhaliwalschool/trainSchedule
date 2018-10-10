@@ -30,101 +30,49 @@
 var config = {
 
     apiKey: "AIzaSyBtWngpI_f8y3o8aHp03NKH6U8b79fV5Tw",
-
     authDomain: "train-time-d915a.firebaseapp.com",
-
     databaseURL: "https://train-time-d915a.firebaseio.com",
-
-    projectId: "train-time-d915a",
-
     storageBucket: "train-time-d915a.appspot.com",
-
-    messagingSenderId: "137311122151"
-
-};
+ };
 
 firebase.initializeApp(config);
-
-
-
-
-
-
-
-
-
 var database = firebase.database();
 
-
-
 // 2. Button for adding trains
-
 $("#add-train-btn").on("click", function (event) {
-
     event.preventDefault();
 
-
-
     // Grabs user input
-
     var trnName = $("#train-name-input").val().trim();
-
     var trndestination = $("#destination-input").val().trim();
-
     var trnfirst_train = moment($("#first_train-input").val().trim(), "0000").format("X");
-
     var trnminutes = $("#minutes-input").val().trim();
 
-
-
     // Creates local "temporary" object for holding train data
-
     var newtrn = {
-
         name: trnName,
-
         destination: trndestination,
-
         first_train: trnfirst_train,
-
         minutes: trnminutes
-
     };
 
 
-
     // Uploads train data to the database
-
     database.ref().push(newtrn);
 
-
-
     // Logs everything to console
-
     console.log(newtrn.name);
-
     console.log(newtrn.destination);
-
     console.log(newtrn.first_train);
-
     console.log(newtrn.minutes);
-
-
 
     alert("train successfully added");
 
-
-
     // Clears all of the text-boxes
-
-    $("#train-name-input").val("");
-
+   $("#train-name-input").val("");
     $("#destination-input").val("");
-
     $("#first_train-input").val("");
-
     $("#minutes-input").val("");
-
 });
 
 
